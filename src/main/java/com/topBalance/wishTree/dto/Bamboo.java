@@ -20,4 +20,5 @@ public class Bamboo {
     private String userId;
     private String comment;
     private DateFormat commentDate;
+
 }
