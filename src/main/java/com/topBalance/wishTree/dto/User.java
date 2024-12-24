@@ -1,4 +1,4 @@
-package com.kh.khtAcademy.dto;
+package com.topBalance.wishTree.dto;
 // javax -> jakarta
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
