@@ -19,29 +19,7 @@
 
 
 
-    <!-- 유저 저장 SQL : 이름, 이메일, 생년월일, 계좌잔액, 성별, 취미 모두 작성이 잘 된 경우
-                        * 유저아이디(저장순서번호)는 자동으로 번호매김이 순차적으로 되기 때문에
-                                                    유저가 직접 작성하지 않음
-     -->
-    <insert id="insertUser">
-        INSERT INTO USERPROFILE (USERNAME   ,    EMAIL,   BIRTHDATE,   ACCOUNT_BALANCE,     GENDER,    HOBBIES)
-        VALUES (#{username}, #{email}, #{birthdate},#{accountBalance} , #{gender}, #{hobbies});
-    </insert>
 
-    <!-- 이름 찾기 SQL : 일치하는 이메일이 조회되는 경우 -->
-    <select id="findByUsername">
-        SELECT USERNAME
-        FROM USERPROFILE
-        WHERE EMAIL = #{email}
-    </select>
-
-    <!-- 이메일 찾기 SQL : 유저이름과 성별이 일치하는 경우 -->
-    <select id="findByEmail">
-        SELECT EMAIL
-        FROM USERPROFILE
-        WHERE USERNAME = #{username}
-          AND   GENDER   = #{gender}
-    </select>
 
     <!--
     <select id="기능명칭">
