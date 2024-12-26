@@ -20,18 +20,18 @@ public class WishController {
 
     @GetMapping("/") // - 엔드포인트 html 파일에 작성한 화면을 보여줄 주소
     public String index(Model model) { // model은 index.html에 자바로 작성한 값을 전달할 변수
-        List<Map<String, Object>> users = wishService.getSevenWish();
-        System.out.println("users 목록 확인  : " + users);
-        model.addAttribute("users", users);
+        List<Map<String, Object>> wishs = wishService.getSevenWish();
+        System.out.println("wishs 목록 확인  : " + wishs);
+        model.addAttribute("wishs", wishs);
         //model.addAttribute("message", "Hello World");
         return "index";
     }
 
     // DB에 값을 집어넣을 때는 PostMapping 사용하고 엔드포인트 form action에서 작성한 주소를 엔드포인트로 지정
-    @PostMapping("/register-success")
-    public String registerSuccess(@ModelAttribute("user") User user, Model model) {
-        userProfileService.insertUser(user);
-        model.addAttribute("msg", "회원가입이 성공적으로 완료되었습니다.");
+    @PostMapping("/selectwishs-success")
+    public String registerSuccess(@ModelAttribute("wishs") User user, Model model) {
+
+        model.addAttribute("msg", "한해소망 조회완료");
         return "success"; //회원가입이 무사히 완료될 경우 success 페이지로 이동
     }
 

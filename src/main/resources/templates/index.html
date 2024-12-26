@@ -6,17 +6,36 @@
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-<th:block th:replace="layout/header :: header"></th:block>
+<th:block th:replace="~{layout/header :: header}"></th:block>
 
 <div class="main-container">
     <h1>메인 화면</h1>
     <div>
+
         <table>
-            <tr th:each="  u   : ${users}     ">
-                <td th:text="${u.userId}"></td>
-                <td th:text="${u.username}"></td>
-                <td th:text="${u.email}"></td>
-                <td th:text="${u.birthdate}"></td>
+            <tr th:each="  r   : ${ranks}     ">
+                <td th:text="${r.userId}"></td>
+                <td th:text="${r.userPw}"></td>
+                <td th:text="${r.userName}"></td>
+                <td th:text="${r.userPhone}"></td>
+                <td th:text="${r.userBirthdate}"></td>
+                <td th:text="${r.userGender}"></td>
+                <td th:text="${r.ranking}"></td>
+                <td th:text="${r.total_score}"></td>
+                <td th:text="${r.game_date}"></td>
+                <td th:text="${r.dailyVisit}"></td>
+
+            </tr>
+        </table>
+
+    </div>
+    <div>
+
+        <table>
+            <tr th:each="  w   : ${wishs}     ">
+                <td th:text="${w.userId}"></td>
+                <td th:text="${w.userWish}"></td>
+                <td th:text="${w.wishDate}"></td>
 
             </tr>
         </table>
@@ -24,6 +43,6 @@
     </div>
 
 </div>
-<th:block th:replace="layout/footer :: footer"></th:block>
+<th:block th:replace="~{layout/footer :: footer}"></th:block>
 </body>
 </html>

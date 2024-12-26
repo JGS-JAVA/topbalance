@@ -16,9 +16,9 @@ public interface RankingMapper {
     // xml 파일에 id 값 설정한 기능 목록 조회
 
     // 모든 유저 목록 조회
-    Map<String, User> getTenRank();
+    List<User> getTenRank();
 
-    void selectRank(User user);
+    int selectRank(int total_score);
 }
 
 

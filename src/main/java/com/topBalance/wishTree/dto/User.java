@@ -5,6 +5,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.*;
 
+import java.util.Date;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -12,11 +14,15 @@ import lombok.*;
 public class User {
 
     @Id // primary key
-    private int userId;
-    private String userBirthdate;
-    private String userGender;
-    private String userPassword;
-    private int dailyVisit;
-    private String userPhone;
+    private String userId;
+    private String userPw;
     private String userName;
+    private String userPhone;
+    private Date userBirthdate;
+    private String userGender;
+    private int ranking;
+    private int total_score;
+    private Date game_date;
+    private int dailyVisit;
+
 }

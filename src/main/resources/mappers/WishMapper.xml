@@ -8,9 +8,9 @@
 <mapper namespace="com.topBalance.wishTree.mapper.WishMapper">
     <!-- sql문을 보낼 때 보낼 표기명 id에 작성 -->
 
-    <!-- 모든 유저 조회 SQL : USERPROFILE 테이블에 저장되어 있는 유저들을 모두 조회 -->
+    <!-- 한해소망 7개 조회 SQL : wishtree 테이블에 저장되어 있는 소망들 조회 -->
     <select id="getSevenWish" >
-        SELECT *
+        SELECT  userId, userWish
         FROM wishtree
         WHERE user_wish IS NOT NULL
         ORDER BY wish_Date DESC

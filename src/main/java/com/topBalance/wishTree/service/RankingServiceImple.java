@@ -2,6 +2,7 @@ package com.topBalance.wishTree.service;
 
 import com.topBalance.wishTree.dto.User;
 import com.topBalance.wishTree.mapper.RankingMapper;
+import com.topBalance.wishTree.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,8 @@ public class RankingServiceImple implements RankingService {
 
     @Autowired
     private RankingMapper rankingMapper;
+    @Autowired
+    private UserMapper user;
 
     @Override
     public List<Map<String, Object>> getTenRank() {
@@ -22,16 +25,18 @@ public class RankingServiceImple implements RankingService {
         return rankList.stream().map( user -> {
             Map<String, Object> userMap = new HashMap<>();
             userMap.put("userId", user.getUserId());
-            userMap.put("username", user.getUsername());
-            userMap.put("email", user.getEmail());
-            userMap.put("birthdate", user.getBirthdate().toString());
+            userMap.put("userName", user.getUserName());
+            userMap.put("userPhone", user.getUserPhone());
+            userMap.put("userBirthdate", user.getUserBirthdate().toString());
+            userMap.put("userGender", user.getUserGender());
+            userMap.put("dailyVisit", user.getDailyVisit());
             return userMap;
         }).collect(Collectors.toList());
     }
 
     @Override
-    public void selectRank(User user) {
-        rankingMapper.selectRank(user);
+    public int selectRank(int total_score) {
+        return rankingMapper.selectRank(total_score);
     }
 
 

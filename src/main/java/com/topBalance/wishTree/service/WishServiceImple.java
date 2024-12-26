@@ -1,6 +1,7 @@
 package com.topBalance.wishTree.service;
 
 import com.topBalance.wishTree.dto.User;
+import com.topBalance.wishTree.dto.WishTree;
 import com.topBalance.wishTree.mapper.WishMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,19 +19,20 @@ public class WishServiceImple implements WishService {
 
     @Override
     public List<Map<String, Object>> getSevenWish() {
-        List<User> rankList = wishMapper.getSevenWish();
-        return rankList.stream().map(user -> {
+        List<WishTree> wishList = wishMapper.getSevenWish();
+        return wishList.stream().map( user -> {
             Map<String, Object> userMap = new HashMap<>();
             userMap.put("userId", user.getUserId());
-            userMap.put("username", user.getUsername());
-            userMap.put("email", user.getEmail());
-            userMap.put("birthdate", user.getBirthdate().toString());
+            userMap.put("userWish", user.getUserWish());
+            userMap.put("wishDate", user.getWishDate());
+
             return userMap;
         }).collect(Collectors.toList());
     }
 
     @Override
-    public void selectWish(User user) {
-        wishMapper.selectWish(user);
+    public String selectWish(String userWish) {
+        return wishMapper.selectWish(userWish);
+
     }
 }

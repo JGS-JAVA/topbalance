@@ -1,5 +1,6 @@
 package com.topBalance.wishTree.mapper;
 
+import com.topBalance.wishTree.dto.WishTree;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -16,7 +17,7 @@ public interface WishMapper {
     // xml 파일에 id 값 설정한 기능 목록 조회
 
     // 모든 유저 목록 조회
-    Map<String, User> getSevenWish();
+    List<WishTree> getSevenWish();
 
-    void selectWish(User user);
+    String selectWish(String userWish);
 }
