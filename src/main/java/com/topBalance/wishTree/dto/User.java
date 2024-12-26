@@ -4,6 +4,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -21,8 +22,8 @@ public class User {
     private Date userBirthdate;
     private String userGender;
     private int ranking;
-    private int total_score;
-    private Date game_date;
+    private int totalScore;
+    private Date gameDate;
     private int dailyVisit;
 
 }

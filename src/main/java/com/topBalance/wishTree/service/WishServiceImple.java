@@ -1,6 +1,5 @@
 package com.topBalance.wishTree.service;
 
-import com.topBalance.wishTree.dto.User;
 import com.topBalance.wishTree.dto.WishTree;
 import com.topBalance.wishTree.mapper.WishMapper;
 import org.springframework.beans.factory.annotation.Autowired;

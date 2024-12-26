@@ -10,7 +10,7 @@
 
     <!-- 상위랭크 10명 조회 SQL : user 테이블에 저장되어 있는 유저들 조회 -->
     <select id="getTenRank" >
-        SELECT total_score, userId
+        SELECT total_score, user_id
         FROM user
         ORDER BY total_score DESC
             LIMIT 10;

@@ -14,12 +14,20 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-public class WishController {
+public class IndexController {
     @Autowired
+    private RankingService rankingService;
     private WishService wishService;
 
     @GetMapping("/") // - 엔드포인트 html 파일에 작성한 화면을 보여줄 주소
-    public String index(Model model) { // model은 index.html에 자바로 작성한 값을 전달할 변수
+    public String ranksindex(Model model) { // model은 index.html에 자바로 작성한 값을 전달할 변수
+        List<Map<String, Object>> ranks = rankingService.getTenRank();
+        System.out.println("ranks 목록 확인  : " + ranks);
+        model.addAttribute("ranks", ranks);
+        return "index";
+    }
+
+    public String wishsindex(Model model) { // model은 index.html에 자바로 작성한 값을 전달할 변수
         List<Map<String, Object>> wishs = wishService.getSevenWish();
         System.out.println("wishs 목록 확인  : " + wishs);
         model.addAttribute("wishs", wishs);
@@ -27,7 +35,13 @@ public class WishController {
         return "index";
     }
 
-    // DB에 값을 집어넣을 때는 PostMapping 사용하고 엔드포인트 form action에서 작성한 주소를 엔드포인트로 지정
+     // DB에 값을 집어넣을 때는 PostMapping 사용하고 엔드포인트 form action에서 작성한 주소를 엔드포인트로 지정
+    @PostMapping("/selectranks-success")
+    public String selectSuccess(@ModelAttribute("ranks") User user, Model model) {
+
+        model.addAttribute("msg", "랭킹 조회완료");
+        return "success";
+    }
     @PostMapping("/selectwishs-success")
     public String registerSuccess(@ModelAttribute("wishs") User user, Model model) {
 

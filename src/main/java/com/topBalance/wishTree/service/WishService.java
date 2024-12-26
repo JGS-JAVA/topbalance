@@ -1,7 +1,5 @@
 package com.topBalance.wishTree.service;
 
-import com.topBalance.wishTree.dto.User;
-
 import java.util.List;
 import java.util.Map;
 

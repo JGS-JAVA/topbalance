@@ -10,10 +10,10 @@
 
     <!-- 한해소망 7개 조회 SQL : wishtree 테이블에 저장되어 있는 소망들 조회 -->
     <select id="getSevenWish" >
-        SELECT  userId, userWish
+        SELECT  user_id, user_wish
         FROM wishtree
         WHERE user_wish IS NOT NULL
-        ORDER BY wish_Date DESC
+        ORDER BY wish_date DESC
             LIMIT 7;
     </select>
 
