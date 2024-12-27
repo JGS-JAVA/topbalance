@@ -12,8 +12,7 @@
     <select id="getTenRank" >
         SELECT total_score, user_id
         FROM user
-        ORDER BY total_score DESC
-            LIMIT 10;
+        ORDER BY total_score DESC LIMIT 10
     </select>
 
 

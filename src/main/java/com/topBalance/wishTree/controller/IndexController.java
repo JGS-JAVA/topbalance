@@ -17,6 +17,7 @@ import java.util.Map;
 public class IndexController {
     @Autowired
     private RankingService rankingService;
+    @Autowired
     private WishService wishService;
 
     @GetMapping("/") // - 엔드포인트 html 파일에 작성한 화면을 보여줄 주소
@@ -24,10 +25,7 @@ public class IndexController {
         List<Map<String, Object>> ranks = rankingService.getTenRank();
         System.out.println("ranks 목록 확인  : " + ranks);
         model.addAttribute("ranks", ranks);
-        return "index";
-    }
 
-    public String wishsindex(Model model) { // model은 index.html에 자바로 작성한 값을 전달할 변수
         List<Map<String, Object>> wishs = wishService.getSevenWish();
         System.out.println("wishs 목록 확인  : " + wishs);
         model.addAttribute("wishs", wishs);

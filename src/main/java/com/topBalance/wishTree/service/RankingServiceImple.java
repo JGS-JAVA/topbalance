@@ -25,12 +25,8 @@ public class RankingServiceImple implements RankingService {
         return rankList.stream().map( user -> {
             Map<String, Object> userMap = new HashMap<>();
             userMap.put("userId", user.getUserId());
-            userMap.put("userPw", user.getUserPw());
-            userMap.put("userName", user.getUserName());
-            userMap.put("userPhone", user.getUserPhone());
-            userMap.put("userBirthdate", user.getUserBirthdate());
-            userMap.put("userGender", user.getUserGender());
-            userMap.put("dailyVisit", user.getDailyVisit());
+            userMap.put("totalScore", user.getTotalScore());
+
             return userMap;
         }).collect(Collectors.toList());
     }

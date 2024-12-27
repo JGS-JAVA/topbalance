@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <title>Title</title>
   <link rel="stylesheet" href="/css/styles.css">
+    <style>
+
+    </style>
 </head>
 <body>
 <th:block th:replace="~{layout/header :: header}"></th:block>
@@ -15,15 +18,9 @@
         <table>
             <tr th:each="  r   : ${ranks}     ">
                 <td th:text="${r.userId}"></td>
-                <td th:text="${r.userPw}"></td>
-                <td th:text="${r.userName}"></td>
-                <td th:text="${r.userPhone}"></td>
-                <td th:text="${r.userBirthdate}"></td>
-                <td th:text="${r.userGender}"></td>
-                <td th:text="${r.ranking}"></td>
                 <td th:text="${r.totalScore}"></td>
-                <td th:text="${r.gameDate}"></td>
-                <td th:text="${r.dailyVisit}"></td>
+
+
 
             </tr>
         </table>
