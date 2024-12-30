@@ -42,18 +42,21 @@
             position: relative;
         }
         .ranklist{
+            padding: 100px;
             width: 100px;
-            height: 100px;
+            height: 200px;
             display: flex;
             flex-direction: column;
             text-align: center;
             background-image: url("/images/ranklist.png");
-            background-size: cover; /* 배경 이미지를 비율 유지하며 채우기 */
+             /* 배경 이미지를 비율 유지하며 채우기 */
+            background-size: cover;
             background-position: center; /* 이미지를 중앙에 배치 */
             background-repeat: no-repeat;
             position: absolute;
-            top: 350px; right: -150px;
+            top: 250px; right: -250px;
         }
+
         .ui-button{
 
             position: absolute;
@@ -75,6 +78,36 @@
             border-radius: 30px;
             gap: 10px;
         }
+
+        .wishlist {
+            position: relative;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        .wishlist table td {
+            font-size: 8px;
+            background-color: lightgreen;
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50px;
+            border: none;
+        }
+
+        .wishlist table td:nth-child(2n-1) { /* 홀수 td */
+            position: relative;
+            left: -50px; /* 왼쪽으로 이동 */
+        }
+
+        .wishlist table td:nth-child(2n) { /* 짝수 td */
+            position: relative;
+            left: 50px; /* 오른쪽으로 이동 */
+        }
+
+
     </style>
 </head>
 <body>
@@ -89,13 +122,15 @@
                 <td th:text="${r.userId}"></td>
             </tr>
         </table>
+
     </div>
     <div class="wishlist">
         <table>
             <tr th:each="  w   : ${wishs}     ">
-                <td th:text="${w.userId}"></td>
+            <!--    <td th:text="${w.userId}"></td> -->
+
                 <td th:text="${w.userWish}"></td>
-                <td th:text="${w.wishDate}"></td>
+             <!--   <td th:text="${w.wishDate}"></td> -->
             </tr>
         </table>
     </div>
@@ -105,6 +140,7 @@
         <br><br>
         <a class="gotobamboo" href="">댓글로 이동</a>
     </div>
+
 </div>
 <th:block th:replace="~{layout/footer :: footer}"></th:block>
 </body>
