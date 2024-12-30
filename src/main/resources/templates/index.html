@@ -27,6 +27,8 @@
             line-height: 10px;
             text-align: center;
             color: #FF6A00;
+            text-shadow: #000000;
+
 
         }
         .main-container {
@@ -54,7 +56,7 @@
             background-position: center; /* 이미지를 중앙에 배치 */
             background-repeat: no-repeat;
             position: absolute;
-            top: 250px; right: -250px;
+            top: 250px; right: -230px;
         }
 
         .ui-button{
@@ -97,14 +99,14 @@
             border: none;
         }
 
-        .wishlist table td:nth-child(2n-1) { /* 홀수 td */
+        .wishlist table tr:nth-child(2n-1) td { /* 홀수 tr의 td */
             position: relative;
-            left: -50px; /* 왼쪽으로 이동 */
+            right: -100px; /* 왼쪽으로 이동 */
         }
 
-        .wishlist table td:nth-child(2n) { /* 짝수 td */
+        .wishlist table tr:nth-child(2n) td { /* 짝수 tr의 td */
             position: relative;
-            left: 50px; /* 오른쪽으로 이동 */
+            left: 340px; /* 오른쪽으로 이동 */
         }
 
 
