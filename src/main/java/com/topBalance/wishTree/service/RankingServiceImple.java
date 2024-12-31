@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-@Service
+@Service // 이 클래스가 서비스 레이어 담당 Bean임을 스프링컨테이너에 알림. 비즈니스 로직처리 클래스
 public class RankingServiceImple implements RankingService {
 
     @Autowired
@@ -19,7 +19,7 @@ public class RankingServiceImple implements RankingService {
     @Autowired
     private UserMapper user;
 
-    @Override
+    @Override // 인터페이스의 메서드를 자식 클래스에서 재정의(Override)하고 있다
     public List<Map<String, Object>> getTenRank() {
         List<User> rankList = rankingMapper.getTenRank();
         return rankList.stream().map( user -> {

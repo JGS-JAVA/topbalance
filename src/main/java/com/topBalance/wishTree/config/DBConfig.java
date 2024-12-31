@@ -17,16 +17,17 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import javax.sql.DataSource;
 
-@Configuration
-@PropertySource("classpath:/config.properties")
+@Configuration // 설정클래스로 동작
+@PropertySource("classpath:/config.properties") // config.properties 파일 읽어와 설정에 사용
 public class DBConfig {
 
 
-    @Autowired
+    @Autowired // 스프링컨테이너에서 타입에 맞는 Bean을 필드에 주입(의존성 주입, Dependency Injection)
     private ApplicationContext applicationContext; // 현재 프로젝트
 
-    @Bean
+    @Bean // 수동으로 생성한 객체(Bean)를 스프링컨테이너에 등록
     @ConfigurationProperties(prefix = "spring.datasource.hikari")
+    // config.properties 파일에서 spring.datasource.hikari로 시작하는 값을 읽어와 HikariConfig에 자동세팅
     public HikariConfig hikariConfig() {
 
         return new HikariConfig();
